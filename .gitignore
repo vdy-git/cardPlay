@@ -1,0 +1,39 @@
+# 依赖目录
+node_modules/
+
+# 环境变量文件
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# 日志文件
+*.log
+logs/
+
+# 调试文件
+*.pid
+*.seed
+
+# 编辑器配置
+.vscode/
+.idea/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试产物
+coverage/
+
+# 构建产物
+build/
+dist/
+
+# 包管理器锁文件
+package-lock.json
+yarn.lock
+
+# 本地调试文件
+*.local
