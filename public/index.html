@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多人德州扑克游戏</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- 游戏标题 -->
+    <header class="game-header">
+      <h1>多人德州扑克</h1>
+      <div class="players-count">
+        <i class="fas fa-users"></i> 
+        <span id="player-count">0</span> 玩家
+      </div>
+    </header>
+    
+    <!-- 加入游戏区域 -->
+    <div id="join-screen" class="screen">
+      <div class="join-form">
+        <h2>加入游戏</h2>
+        <div class="form-group">
+          <label for="player-name">你的名字:</label>
+          <input type="text" id="player-name" placeholder="输入你的名字" maxlength="10">
+        </div>
+        <button id="join-btn" class="btn-primary">
+          <i class="fas fa-sign-in-alt"></i> 加入游戏
+        </button>
+      </div>
+    </div>
+    
+    <!-- 等待区域 -->
+    <div id="waiting-screen" class="screen hidden">
+      <div class="waiting-room">
+        <h2>等待其他玩家</h2>
+        <div class="players-list">
+          <div class="player-card" id="player-template">
+            <div class="player-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="player-info">
+              <span class="player-name">玩家名字</span>
+              <span class="player-status ready">已准备</span>
+              <span class="player-status waiting">等待中</span>
+            </div>
+          </div>
+        </div>
+        
+        <button id="ready-btn" class="btn-primary">
+          <i class="fas fa-check"></i> 准备开始
+        </button>
+      </div>
+    </div>
+    
+    <!-- 游戏区域 -->
+    <div id="game-screen" class="screen hidden">
+      <div class="game-table">
+        <!-- 公共牌区域 -->
+        <div class="community-cards">
+          <h3>公共牌</h3>
+          <div class="cards-container">
+            <div class="card-placeholder flop">翻牌圈</div>
+            <div class="card-placeholder flop">翻牌圈</div>
+            <div class="card-placeholder flop">翻牌圈</div>
+            <div class="card-placeholder turn">转牌圈</div>
+            <div class="card-placeholder river">河牌圈</div>
+          </div>
+        </div>
+        
+        <!-- 玩家区域 -->
+        <div class="player-area">
+          <h3>你的底牌</h3>
+          <div class="player-cards">
+            <div class="card back">?</div>
+            <div class="card back">?</div>
+          </div>
+        </div>
+        
+        <!-- 游戏控制 -->
+        <div class="game-controls">
+          <button id="deal-flop-btn" class="btn-secondary">
+            <i class="fas fa-cards"></i> 发翻牌 (3张)
+          </button>
+          <button id="deal-turn-btn" class="btn-secondary">
+            <i class="fas fa-card"></i> 发转牌 (1张)
+          </button>
+          <button id="deal-river-btn" class="btn-secondary">
+            <i class="fas fa-card"></i> 发河牌 (1张)
+          </button>
+          <button id="deal-bet-btn" class="btn-secondary">
+            <i class="fas fa-coins"></i> 下注500
+          </button>
+          <!-- <button id="compare-btn" class="btn-success hidden">
+            <i class="fas fa-trophy"></i> 比较胜负
+          </button>
+          <button id="compare-btn" class="btn-success hidden">
+            <i class="fas fa-trophy"></i> 比较胜负
+          </button> -->
+          <button id="new-game-btn" class="btn-success">
+            <i class="fas fa-redo"></i> 开始新游戏
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
