@@ -97,12 +97,14 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
     playersList.innerHTML = '';
     
     // 添加玩家
-    players.forEach(player => {
+    players.forEach((player,index) => {
+
       const playerCard = document.createElement('div');
       playerCard.className = 'player-card';
       
       playerCard.innerHTML = `
         <div class="player-avatar">
+          <span>${index + 1}</span>
           <i class="fas fa-user"></i>
         </div>
         <div class="player-info">
@@ -121,11 +123,12 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
     const playersContainer = document.getElementById('players-list')
     playersContainer.innerHTML = '';
     // 添加玩家
-    players.forEach(player => {
+    players.forEach((player,index) => {
       const inPlayerCard = document.createElement('div');
       inPlayerCard.className = 'player-card';
       inPlayerCard.innerHTML = `
         <div class="player-avatar">
+                  <span>${index + 1}</span>
           <i class="fas fa-user"></i>
         </div>
         <div class="player-info">
@@ -150,11 +153,13 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
     playersContainer.className = 'players-list';
     playersContainer.id = 'players-list';
     playersContainer.innerHTML = '';
-    data.players.forEach(player => {
+    data.players.forEach((player,index) => {
+
       const playerCard = document.createElement('div');
       playerCard.className = 'player-card';
       playerCard.innerHTML = `
         <div class="player-avatar">
+          <span>${index + 1}</span>
           <i class="fas fa-user"></i>
         </div>
         <div class="player-info">
