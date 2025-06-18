@@ -15,11 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const dealRiverBtn = document.getElementById('deal-river-btn');
   // const compareBtn = document.getElementById('compare-btn');
   const newGameBtn = document.getElementById('new-game-btn');
-  const betBtn = document.getElementById('deal-bet-btn');
+  // const betBtn = document.getElementById('deal-bet-btn');
   
   // 连接Socket.IO
   const socket = io();
   let currentPlayerId = null;
+
+// 初始化游戏
+let isDealer = false;
+
+document.getElementById('become-dealer-btn').addEventListener('click', function() {
+    socket.emit('player-become');
+});
+
+// 初始化游戏
   
   // 加入游戏按钮点击事件
   joinBtn.addEventListener('click', () => {
@@ -33,10 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // 下注按钮点击事件
-  betBtn.addEventListener('click', () => {
-    socket.emit('player-bet', 500);
-  });
+  // betBtn.addEventListener('click', () => {
+  //   socket.emit('player-bet', 500);
+  // });
   
+  document.querySelectorAll('.btn-bet').forEach(button => {
+    button.addEventListener('click', () => {
+      const betAmount = parseInt(button.dataset.bet);
+      socket.emit('player-bet', betAmount);
+    });
+  });
+
+
   // 准备按钮点击事件
   readyBtn.addEventListener('click', () => {
     socket.emit('player-ready');
@@ -114,11 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="player-info">
           <span class="player-name">${player.name}</span>
           <span class="player-name">下注：${player.bet}</span>
+          ${player.crown ? '<i class="fas fa-crown crown-icon"></i>' : ''}
         </div>
       `;
       playersContainer.appendChild(inPlayerCard);
     });
     gameScreen.insertBefore(playersContainer, gameScreen.firstChild);
+
   })
 
   // 游戏开始

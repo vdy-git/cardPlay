@@ -156,10 +156,28 @@ io.on('connection', (socket) => {
         id: p.id, 
         name: p.name,
         ready: p.ready,
-        bet: p.bet
+        bet: p.bet,
+        crown: p.crown
       })));
     }
   });
+
+  socket.on('player-become', () =>{
+    const player = gameState.players.find(p => p.id === socket.id);
+    if (player) {
+      // 先将所有玩家的crown设为false
+      gameState.players.forEach(p => p.crown = false);
+      // 再将当前玩家的crown设为true
+      player.crown = true;
+      io.emit('player-bet', gameState.players.map(p => ({ 
+        id: p.id, 
+        name: p.name,
+        ready: p.ready,
+        bet: p.bet,
+        crown: p.crown
+      })));
+    }
+  })
 
   // 请求发公共牌
   socket.on('request-community-cards', () => {
