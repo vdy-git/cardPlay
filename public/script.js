@@ -125,7 +125,7 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
     // 添加玩家
     players.forEach((player,index) => {
       const inPlayerCard = document.createElement('div');
-      inPlayerCard.className = 'player-card';
+      inPlayerCard.className = 'player-cardIn';
       inPlayerCard.innerHTML = `
         <div class="player-avatar">
                   <span>${index + 1}</span>
@@ -134,7 +134,7 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
         <div class="player-info">
           <span class="player-name">${player.name}</span>
           <span class="player-name">下注：${player.bet}</span>
-          ${player.crown ? '<i class="fas fa-crown crown-icon"></i>' : ''}
+          ${player.crown ? '<i class="fas fa-crown crown-icon crownCss"></i>' : ''}
         </div>
       `;
       playersContainer.appendChild(inPlayerCard);
@@ -156,7 +156,7 @@ document.getElementById('become-dealer-btn').addEventListener('click', function(
     data.players.forEach((player,index) => {
 
       const playerCard = document.createElement('div');
-      playerCard.className = 'player-card';
+      playerCard.className = 'player-cardIn';
       playerCard.innerHTML = `
         <div class="player-avatar">
           <span>${index + 1}</span>

@@ -152,6 +152,7 @@ io.on('connection', (socket) => {
     const player = gameState.players.find(p => p.id === socket.id);
     if (player) {
       player.bet = player.bet+ Number(bet);
+      console.log('crown',player.crown)
       io.emit('player-bet', gameState.players.map(p => ({ 
         id: p.id, 
         name: p.name,

@@ -63,7 +63,7 @@ body {
 
 .screen {
   padding: 30px;
-  min-height: 500px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,6 +187,8 @@ body {
   gap: 15px;
   justify-content: center;
   margin-bottom: 30px;
+  margin-top: 50px;
+  height: 250px;
 }
 
 .dealer-crown {
@@ -209,10 +211,38 @@ body {
   gap: 15px;
   transition: transform 0.3s ease;
 }
+.player-cardIn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+  height: 60px;
+}
+
+.players-list .player-cardIn:nth-child(1) { transform: translate(200px, 50px); }
+.players-list .player-cardIn:nth-child(2) { transform: translate(170.71px, 111px); }
+.players-list .player-cardIn:nth-child(3) { transform: translate(0, 172px); }
+.players-list .player-cardIn:nth-child(4) { transform: translate(-170.71px, 111px); }
+.players-list .player-cardIn:nth-child(5) { transform: translate(-200px, 50px); }
+.players-list .player-cardIn:nth-child(6) { transform: translate(-170.71px, -11px); }
+.players-list .player-cardIn:nth-child(7) { transform: translate(0, -72px); }
+.players-list .player-cardIn:nth-child(8) { transform: translate(170.71px, -11px); }
+.players-list .player-cardIn:nth-child(9) { transform: translate(0, 50px); /* Center */ }
 
 .player-card:hover {
   transform: translateY(-5px);
   background: rgba(52, 152, 219, 0.2);
+}
+
+.crownCss{
+  position: absolute;
+  top: 44%;
+  right: 15px;
 }
 
 .player-avatar {

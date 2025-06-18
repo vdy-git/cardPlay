@@ -5,7 +5,7 @@ PORT = 22
 # 服务器目标目录(只同步public目录 + package.json + package-lock.json + server.js)
 TARGET_DIR = /tmp/poker-game
 # 私钥
-PEM = /Users/fallask/.ssh/aliyun-ztf.pem
+PEM = D:\cardPlay\wdy.pem
 # pm2进程名称
 PM2_SERVER_NAME = poker-game
 
